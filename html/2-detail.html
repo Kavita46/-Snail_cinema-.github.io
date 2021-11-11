@@ -3,10 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="referrer" content="no-referrer" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="../js/1.js"></script>
-       <script src="../js/jquery-3.6.0.min.js"></script>
+    <script src="../js/jquery-3.6.0.min.js"></script>
     <!-- <link rel="stylesheet" href="../css/font.css" /> -->
     <link rel="stylesheet" href="../css/public.min.css" />
     <link rel="stylesheet" href="../css/2-detail.css" />
@@ -18,79 +19,18 @@
 
     <div class="main">
       <div class="title font-bold">特色电影</div>
-      <div class="movie-box box1">
-        <a href="16-detail-digest.html">
-          <div class="movie-picture picture-1"></div>
-        </a>
-        <div class="movie-title">哥斯拉大战金刚</div>
-        <div class="movie-price">￥35.9起</div>
-        <div class="time-container">
-          <span> 放映时间</span>
 
-          <div class="time-box">
-            <div class="item">13:00</div>
-            <div class="item">15:00</div>
-            <div class="item">17:00</div>
-            <div class="item">19:00</div>
-            <div class="item">21:00</div>
-          </div>
-        </div>
-      </div>
-      <div class="movie-box box1">
-        <a href="16-detail-digest.html">
-          <div class="movie-picture picture-1"></div>
-        </a>
-        <div class="movie-title">哥斯拉大战金刚</div>
-        <div class="movie-price">￥35.9起</div>
-        <div class="time-container">
-          <span> 放映时间</span>
-
-          <div class="time-box">
-            <div class="item">13:00</div>
-            <div class="item">15:00</div>
-            <div class="item">17:00</div>
-            <div class="item">19:00</div>
-            <div class="item">21:00</div>
-          </div>
-        </div>
-      </div>
-      <div class="movie-box box1">
-        <a href="16-detail-digest.html">
-          <div class="movie-picture picture-1"></div>
-        </a>
-        <div class="movie-title">哥斯拉大战金刚</div>
-        <div class="movie-price">￥35.9起</div>
-        <div class="time-container">
-          <span> 放映时间</span>
-
-          <div class="time-box">
-            <div class="item">13:00</div>
-            <div class="item">15:00</div>
-            <div class="item">17:00</div>
-            <div class="item">19:00</div>
-            <div class="item">21:00</div>
-          </div>
-        </div>
-      </div>
-      <div class="movie-box box2">
-        <a href="16-detail-digest.html">
-          <div class="movie-picture picture-2"></div>
-        </a>
-        <div class="movie-title">指环王:护戒使者</div>
-        <div class="movie-price">￥35.9起</div>
-        <div class="time-container">
-          <span> 放映时间</span>
-
-          <div class="time-box">
-            <div class="item">13:00</div>
-            <div class="item">15:00</div>
-            <div class="item">17:00</div>
-            <div class="item">19:00</div>
-            <div class="item">21:00</div>
-          </div>
-        </div>
-      </div>
     </div>
+    <footer>
+      <div class="footer-bar">
+        <a href="../html/10-index-Noticket.html"
+          ><div class="footer-1"></div
+        ></a>
+        <a href="../html/1-cinema.html"><div class="footer-2"></div></a>
+        <a href="../html/6-myTicket.html"><div class="footer-3"></div></a>
+        <a href="../html/7-my.html"><div class="footer-4"></div></a>
+      </div>
+    </footer>
   </body>
 
   <script>
@@ -102,10 +42,12 @@
         url: "https://www.fastmock.site/mock/bb4157f45a0b5ffdcb3f6d984517a6c0/woniuMovie/getAllOperas",
         data: {},
         dataType: "json",
+
         success: function (data) {
-          console.log(data);
           var index = parseInt(id) - 1;
           let operas = data.operas;
+
+          // 渲染影院信息:头图
           let html = `
               <div class="head">
         
@@ -118,7 +60,7 @@
 
           $(".top").prepend(html);
 
-          // 渲染地址等
+          // 渲染影院信息:地址/评分等
 
           let html2 = `
           <div class="address">
@@ -149,6 +91,46 @@
         `;
 
           $(".section").append(html2);
+          // 渲染影院信息
+
+          // 该电影院的电影Id数组
+          let movieIdList = operas[index].movies;
+          let movieList = JSON.parse(localStorage.getItem("movieList"));
+          console.log(movieIdList);
+          console.log(movieList);
+          // 从localStorage中获取所有电影的数组
+        
+
+ 
+          console.log("开始遍历");
+          // 只遍历 4 次
+          for (var i = 0; i < movieIdList.length; i++) {
+            for (var  j = 0; j < movieList.length; j++) {
+              if (movieIdList[i] == movieList[j].id) {
+                var MoviesHtml = `      <div class="movie-box">
+        <a href="16-detail-digest.html?id=${movieList[j].id}">
+          <div class="movie-picture "    style = " background: url('${movieList[j].imgSrc}') no-repeat center/100%";></div>
+        </a>
+        <div class="movie-title">${movieList[j].title}</div>
+        <div class="movie-price">￥${movieList[j].price}起</div>
+        <div class="time-container">
+          <span> 放映时间</span>
+
+          <div class="time-box">
+            <div class="item">13:00</div>
+            <div class="item">15:00</div>
+            <div class="item">17:00</div>
+            <div class="item">19:00</div>
+            <div class="item">21:00</div>
+          </div>
+        </div>
+      </div>`;
+                $(".main").append(MoviesHtml);
+              }
+            }
+          }
+
+          console.log("结束遍历");
         },
       });
     });

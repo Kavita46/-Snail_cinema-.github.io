@@ -3,7 +3,6 @@ body {
   position: relative;
 
   //   height: 101.563rem;
-  border:1px solid green;
 }
 
 .top {
@@ -114,7 +113,7 @@ body {
   overflow:scroll;
   display:flex;
   flex-wrap:wrap;
-  border: 1px solid red;
+  // border: 1px solid red;
 
   .title {
     font-size: 2rem;
@@ -163,7 +162,7 @@ body {
     }
     .movie-price {
       position: absolute;
-      top: 4.688rem;
+      top: 6.688rem;
       left: 16.188rem;
       font-family: SourceHanSansCN-Regular;
       font-size: 1.25rem;

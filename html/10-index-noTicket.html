@@ -29,62 +29,61 @@
         <div class="title">正在热映</div>
         <a href="8-films-now.html">查看更多</a>
       </div>
-  
-      
-
-  </div>
+    </div>
 
     <div class="movies-bar">
       <div class="text-wrapper">
         <div class="title">即将上映</div>
         <a href="8-films-now.html">查看更多</a>
       </div>
-
-
-  </div>
-
-  <div class="score-board">
-    <span class ="p1">评分榜</span>
-    <a href ="8-films-now.html" class = "p2">查看更多</a>
-  </div>
-
-  <footer>
-    <div class="footer-bar">
-      <a href="../html/9-index-noticket.html"><div class="footer-1"></div></a>
-      <a href="../html/1-cinema.html"><div class="footer-2"></div></a>
-      <a href="../html/6-myTicket.html"><div class="footer-3"></div></a>
-      <a href="../html/7-my.html"><div class="footer-4"></div></a>
     </div>
-  </footer>
 
+    <div class="score-board">
+      <span class="p1">评分榜</span>
+      <a href="8-films-now.html" class="p2">查看更多</a>
+    </div>
 
-  <script>
-    $(function(){
-    
-      $.ajax({
-        url:"https://www.fastmock.site/mock/bb4157f45a0b5ffdcb3f6d984517a6c0/woniuMovie/getAllMovies",
-        type:"get",
-        dataType:"json",
-        data:{},
-        success:function(data){
-          var movies = data.movies;
-          for(let i =0; i < movies.length; i++){
-            var mName = movies[i].title;
-            var mPic = movies[i].imgSrc;
-            console.log(mPic);
-let html = `<div class="movie-wrapper">
+    <footer>
+      <div class="footer-bar">
+        <a href="../html/9-index-noticket.html"><div class="footer-1"></div></a>
+        <a href="../html/1-cinema.html"><div class="footer-2"></div></a>
+        <a href="../html/6-myTicket.html"><div class="footer-3"></div></a>
+        <a href="../html/7-my.html"><div class="footer-4"></div></a>
+      </div>
+    </footer>
+
+    <script>
+      $(function () {
+        $.ajax({
+          url: "https://www.fastmock.site/mock/bb4157f45a0b5ffdcb3f6d984517a6c0/woniuMovie/getAllMovies",
+          type: "get",
+          dataType: "json",
+          data: {},
+          success: function (data) {
+            // localStorage.setItem("movieList",JSON.stringify(data.movies));
+            console.log(data);
+            var movies = data.movies;
+            
+  localStorage.setItem("movieList",JSON.stringify(movies));
+  // 存进storage里面,方便后面查询
+
+            for (let i = 0; i < movies.length; i++) {
+              var mName = movies[i].title;
+              var mPic = movies[i].imgSrc;
+              // console.log(mPic);
+              let html = `<div class="movie-wrapper">
           <a href="2-detail.html">
           <img src = "${mPic}" class="movie-pic"></img>
         </a>
           <div class="movie-name">${mName}</div>
         </div>`;
 
-        console.log(html);
-            $(".movies-bar").append(html);
-          }
-        }
-      })
-    });
-  </script>
+              // console.log(html);
+              $(".movies-bar").append(html);
+            }
+          },
+        });
+      });
+    </script>
   </body>
 </html>

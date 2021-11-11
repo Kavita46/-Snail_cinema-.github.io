@@ -34,7 +34,7 @@
   </body>
 
   <script>
-    let id = location.search.split("id=")[1];
+    let id = location.search.split("operaid=")[1];
 
     console.log("id 是" + id);
     $(function () {
@@ -108,7 +108,7 @@
             for (var  j = 0; j < movieList.length; j++) {
               if (movieIdList[i] == movieList[j].id) {
                 var MoviesHtml = `      <div class="movie-box">
-        <a href="16-detail-digest.html?id=${movieList[j].id}">
+        <a href="16-detail-digest.html?movieid=${movieList[j].id}">
           <div class="movie-picture "    style = " background: url('${movieList[j].imgSrc}') no-repeat center/100%";></div>
         </a>
         <div class="movie-title">${movieList[j].title}</div>

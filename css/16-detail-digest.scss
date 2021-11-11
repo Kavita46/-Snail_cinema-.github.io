@@ -25,7 +25,7 @@ body {
       position: absolute;
       top: -4.375rem;
       left: 1rem;
-      background: url("../img/movie-1@2x.png") no-repeat center/100%;
+      // background: url("../img/movie-1@2x.png") no-repeat center/100%;
     }
     .text-box {
       width: 29.25rem;
@@ -34,17 +34,19 @@ body {
       top: 0;
       right: 0;
       .text-left {
-        white-space: nowrap;
+        // white-space: nowrap;
         position: absolute;
         color: #8890a3;
         left: 0;
       }
       .text-1 {
-        top: 2.063rem;
+        // white-space: nowrap;
+
+        top: .063rem;
         color: #000018; // line-height: 0.75rem;
       }
       .text-2 {
-        top: 5.563rem;
+        top: 5.863rem;
       }
       .text-3 {
         top: 8.438rem;

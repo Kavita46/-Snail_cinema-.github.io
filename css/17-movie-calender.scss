@@ -39,7 +39,8 @@ body {
         left: 0;
       }
       .text-1 {
-        top: 2.063rem;
+        top: 0.063rem;
+        white-space: normal;
         color: #000018; // line-height: 0.75rem;
       }
       .text-2 {
@@ -103,7 +104,7 @@ body {
         align-items: center;
         border-bottom-color: rgb(64, 115, 255);
       }
-      #button-blue{
+      .two-button2 {
         border-bottom: 5px solid;
         border-bottom-color: rgb(64, 115, 255);
       }

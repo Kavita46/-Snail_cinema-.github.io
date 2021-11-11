@@ -1,4 +1,22 @@
 // 设计了一个函数，这个函数用于获取屏幕的宽度，动态给html标签设置内联样式font-size
+function getCurrentMovie() {
+    var movieList = JSON.parse(localStorage.getItem("movieList"));
+    var movieId = location.search.split("=")[1];
+
+    console.log("调用了Current"
+    );
+    for (let i = 0; i < movieList.length; i++) {
+
+        console.log(1);
+        if (movieList[i].id == movieId) {
+
+           var  movieObj = movieList[i];
+            break;
+        }
+    };
+
+    return movieObj;
+}
 (function(doc, win) {
     // 获取到html这个标签
     let docEL = doc.documentElement;

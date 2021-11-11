@@ -46,7 +46,8 @@ body .text-container .text-box .text-left {
 }
 
 body .text-container .text-box .text-1 {
-  top: 2.063rem;
+  top: 0.063rem;
+  white-space: normal;
   color: #000018;
 }
 
@@ -116,7 +117,7 @@ body .main .two-button-bar .two-button a {
   color: #000;
 }
 
-body .main .two-button-bar #button-blue {
+body .main .two-button-bar .two-button2 {
   border-bottom: 5px solid;
   border-bottom-color: #4073ff;
 }

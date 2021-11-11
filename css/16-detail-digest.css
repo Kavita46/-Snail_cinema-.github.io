@@ -26,7 +26,6 @@ body .text-container .movie-pic {
   position: absolute;
   top: -4.375rem;
   left: 1rem;
-  background: url("../img/movie-1@2x.png") no-repeat center/100%;
 }
 
 body .text-container .text-box {
@@ -38,19 +37,18 @@ body .text-container .text-box {
 }
 
 body .text-container .text-box .text-left {
-  white-space: nowrap;
   position: absolute;
   color: #8890a3;
   left: 0;
 }
 
 body .text-container .text-box .text-1 {
-  top: 2.063rem;
+  top: .063rem;
   color: #000018;
 }
 
 body .text-container .text-box .text-2 {
-  top: 5.563rem;
+  top: 5.863rem;
 }
 
 body .text-container .text-box .text-3 {

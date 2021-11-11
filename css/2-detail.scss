@@ -117,9 +117,9 @@ body {
 
   .title {
     font-size: 2rem;
-    line-height: 0.75rem;
+    line-height: 2rem;
     position: absolute;
-    top: 2.438rem;
+    top: 0.5rem;
     left: 2.564rem;
   }
 
@@ -137,6 +137,7 @@ body {
     height: 19.688rem;
     position: relative;
     margin-left: 2rem;
+    margin-top:2rem;
 
     .movie-picture {
       position: absolute;

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="../js/1.js"></script>
-    <script src = "../js/jquery-3.6.0.min.js"></script>
+    <script src="../js/jquery-3.6.0.min.js"></script>
     <link href="../css/public.css" rel="stylesheet" />
     <link rel="stylesheet" href="../css/font.min.css" class="font-bold" />
     <link href="../css/12-ticketBuy.css" rel="stylesheet" />
@@ -34,9 +34,6 @@
             <div class="text-2r">19:00</div>
             <div class="text-3r">座位总数</div>
             <div class="seat-bar">
-              <div class="seat-box">F4</div>
-              <div class="seat-box">F5</div>
-              <div class="seat-box">F6</div>
             </div>
             <div class="text-4r">3</div>
           </div>
@@ -50,8 +47,74 @@
       </div>
 
       <div class="button-blue">
-        <a href="../html/9-index-ticket.html">返回首页</a>
+        <a href="../html/10-index-noTicket.html">返回首页</a>
       </div>
+
+      <script>
+        // 从url中获取参数
+        var movieId = location.search.split("&")[0].split("=")[1];
+        var operaId = location.search.split("&")[1].split("=")[1];
+        var seats = location.search.split("&")[2].split("=")[1];
+
+        // 取得当前影院和电影和选座的座位
+        var movieList = JSON.parse(localStorage.getItem("movieList"));
+        var operaList = JSON.parse(localStorage.getItem("operaList"));
+        var movieObj = movieList.find(function (item) {
+          return item.id == movieId;
+        });
+        var operaObj = operaList.find(function (item) {
+          return item.id == operaId;
+        });
+        let picHTML = ` <div class="movie-pic" style = " background: url('${movieObj.imgSrc}') no-repeat center/100%"></div>`;
+        $(".section-1").prepend(picHTML);
+      $(".text-2").text(movieObj.title);
+      $(".text-3").text(operaObj.name);
+
+
+      seats = seats.split("-");
+      console.log(seats);
+
+      var seatHTML = "";
+      seats.forEach(function (item) {
+        seatHTML += `<div class="seat-box">${item}</div>`;
+      });
+
+      $(".seat-bar").append(seatHTML);
+      $(".text-4r").text(seats.length);
+
+      // 生成订单
+        var username = localStorage.getItem("currentUser");
+        var currentTime = new Date().getTime();
+      // 把当前时间的毫秒数转换为16进制
+      var hexTime = currentTime.toString(16);
+      // 生成订单ID
+      var orderId = username +"&" +  hexTime;
+      console.log(orderId);
+
+      var order = {
+          orderId: orderId,
+          movieId: movieId,
+          operaId: operaId,
+          seats: seats,
+        };
+
+        console.log(order);
+
+        var orderName = "ordersOf" + username;
+        // 如果第一次下单,是空的,就新建再push
+
+        if (localStorage.getItem(orderName) == null) {
+          var orders = new Array();
+orders.push(order);
+          localStorage.setItem(orderName, JSON.stringify(orders));
+        }
+        // 如果不是第一次下单,就取出来,再push
+        else {
+          var orders = JSON.parse(localStorage.getItem(orderName));
+          orders.push(order);
+          localStorage.setItem(orderName, JSON.stringify(orders));
+        }
+      </script>
     </header>
   </body>
 </html>

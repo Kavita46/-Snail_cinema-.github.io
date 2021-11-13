@@ -38,7 +38,6 @@ header .bg .section-1 .movie-pic {
   position: absolute;
   top: 0;
   left: 0;
-  background: url("../img/movie-1@2x.png") no-repeat center/100%;
 }
 
 header .bg .section-1 .text-1 {
@@ -59,7 +58,7 @@ header .bg .section-1 .text-2 {
 
 header .bg .section-1 .text-3 {
   position: absolute;
-  top: 8.563rem;
+  top: 10.563rem;
   left: 11.5rem;
   font-size: 1.5rem;
   line-height: 0.75rem;
@@ -164,25 +163,25 @@ header .bg .text-container .box-1 .text-3 {
 
 header .bg .text-container .box-1 .text-1r {
   top: 0;
-  left: 28.125rem;
+  right: 2rem;
 }
 
 header .bg .text-container .box-1 .text-2r {
   font-family: SourceHanSansCN-Bold;
   font-size: 1.75rem;
   top: 2.875rem;
-  left: 28.125rem;
+  right: 2rem;
 }
 
 header .bg .text-container .box-1 .text-3r {
   top: 7.938rem;
-  left: 28.125rem;
+  right: 2rem;
 }
 
 header .bg .text-container .box-1 .text-4r {
   position: absolute;
   top: 11.375rem;
-  left: 28.125rem;
+  right: 2rem;
 }
 
 header .bg .text-container .box-1 .seat-bar {

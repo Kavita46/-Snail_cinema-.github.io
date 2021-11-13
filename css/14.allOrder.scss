@@ -13,7 +13,7 @@ footer {
 body {
   .xbox {
     margin-top: 2.25rem;
-    width: 30.063rem;
+    width: 50.063rem;
     height: 19.438rem;
     margin-left: 0.938rem;
 
@@ -21,28 +21,29 @@ body {
     .bg {
       width: 10.75rem;
       height: 19.375rem;
-      background: url("../img/movie-1@2x.png") no-repeat center/100%;
       margin-left: 1.563rem;
       border-radius: 0.875rem;
     }
     .text-box {
       position: absolute;
       top: 0;
-      right: 0;
+      left: 18rem;
       height: 19.375rem;
-      width: 16rem;
+      width: 27rem;
+      white-space: normal;
 
       .h1 {
         position: absolute;
-        top: 3.8rem;
+        top: 1.8rem;
       }
       .span1 {
+        height:auto;
         position: absolute;
-        top: 7.25rem;
+        top: 9.25rem;
       }
       .span2 {
         position: absolute;
-        top: 10.313rem;
+        top: 11.313rem;
       }
       .link {
         position: absolute;

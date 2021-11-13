@@ -47,6 +47,9 @@
         success: function (data) {
           
           var operas = data.operas;
+          console.log(operas);
+
+          localStorage.setItem("operaList", JSON.stringify(operas));
           var html = "";
           for (var i = 0; i < operas.length; i++) {
             html += `

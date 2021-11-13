@@ -50,45 +50,70 @@
   </div>
 
   <script>
-    // var localStorage = window.localStorage;
 
+    // var localStorage = window.localStorage;
     $("#register_btn").click(function () {
 
       var username = $(".item-1").val();
       var password = $(".item-2").val();
       var password_confirm = $(".item-3").val();
 
-      if (password == password_confirm) {
-        if(localStorage.getItem("users")==null){
-        var users = [];}
-        else if(localStorage.getItem("users").length !=0){
-          var users = JSON.parse(localStorage.getItem(users));
-        };
+      if (username == null || username == "") {
+        alert("用户名不能为空");
+        return;
+      };
 
+      if (password == null || password == "") {
+        alert("密码不能为空");
+        return;
+      };
+      if (password_confirm == null || password_confirm == "") {
+        alert("确认密码不能为空");
+        return;
+      }
 
+      if (password_confirm != password) {
+        alert("两次密码不一致");
+        return;
+      } else {
         var user = {
           username: username,
           password: password
         };
-        users.push(user);
 
-        localStorage.setItem("users", JSON.stringify(users));
+        // console.log(localStorage.getItem("users"));
 
-        alert("注册成功");
+        if (localStorage.getItem("users") == null) {
+          var users = [];
+          console.log("users空");
+        } else {
+          var users = JSON.parse(localStorage.getItem("users"));
+          console.log("已有users");
+        }
 
+        var hasUser = false;
 
-        $(".item-1").val("");
-        $(".item-2").val("");
-        $(".item-3").val("");
-        console.log(window.localStorage);
-      } else {
-        alert("密码不一致");
+        // 判断是否存在
+        users.find(function (item, index) {
+          if (item.username == username) {
+            alert("用户名已存在,不能重复注册");
+            hasUser = true;
+            return;
+          }
+
+        });
+
+        if(!hasUser){
+          users.push(user);
+          localStorage.setItem("users", JSON.stringify(users));
+          alert("注册成功");
+          console.log(localStorage.getItem("users"));
+
+          location.href = "4-login.html";
+        }
       }
 
-      localStorage.getItem("username");
     });
-
-
 
 
   </script>

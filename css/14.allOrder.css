@@ -8,7 +8,7 @@ footer .footer-bar .footer-3::after {
 
 body .xbox {
   margin-top: 2.25rem;
-  width: 30.063rem;
+  width: 50.063rem;
   height: 19.438rem;
   margin-left: 0.938rem;
   position: relative;
@@ -17,7 +17,6 @@ body .xbox {
 body .xbox .bg {
   width: 10.75rem;
   height: 19.375rem;
-  background: url("../img/movie-1@2x.png") no-repeat center/100%;
   margin-left: 1.563rem;
   border-radius: 0.875rem;
 }
@@ -25,24 +24,26 @@ body .xbox .bg {
 body .xbox .text-box {
   position: absolute;
   top: 0;
-  right: 0;
+  left: 18rem;
   height: 19.375rem;
-  width: 16rem;
+  width: 27rem;
+  white-space: normal;
 }
 
 body .xbox .text-box .h1 {
   position: absolute;
-  top: 3.8rem;
+  top: 1.8rem;
 }
 
 body .xbox .text-box .span1 {
+  height: auto;
   position: absolute;
-  top: 7.25rem;
+  top: 9.25rem;
 }
 
 body .xbox .text-box .span2 {
   position: absolute;
-  top: 10.313rem;
+  top: 11.313rem;
 }
 
 body .xbox .text-box .link {

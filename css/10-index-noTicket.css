@@ -31,3 +31,82 @@ footer .footer-bar .footer-1::after {
   right: 0;
   right: 2.563rem;
 }
+
+.ticket-container {
+  position: relative;
+  width: 100vw;
+  height: 20.563rem;
+  overflow: scroll;
+}
+
+.ticket-container .title {
+  position: absolute;
+  left: 1.313rem;
+  top: 0;
+}
+
+.ticket-container .ticket-bar {
+  overflow: scroll;
+  width: 45.375rem;
+  height: 16.375rem;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: flex;
+}
+
+.ticket-container .ticket-bar .ticket-box {
+  position: relative;
+  flex-shrink: 0;
+  overflow: hidden;
+  width: 32.125rem;
+  height: 16.375rem;
+  background: url("../img/ticket-short.jpg") no-repeat;
+  background-size: 32.125rem auto;
+  margin-right: 1rem;
+  margin-left: 0.2rem;
+}
+
+.ticket-container .ticket-bar .ticket-box .title {
+  margin-top: 2.313rem;
+  margin-left: 1.063rem;
+  font-family: SourceHanSansCN-Bold;
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  letter-spacing: 0rem;
+  color: #ffffff;
+}
+
+.ticket-container .ticket-bar .ticket-box .place {
+  position: absolute;
+  top: 5.438rem;
+  left: 3.125rem;
+  font-family: SourceHanSansCN-Regular;
+  font-size: 1.5rem;
+  letter-spacing: 0rem;
+  color: #ffffff;
+  opacity: 0.47;
+}
+
+.ticket-container .ticket-bar .ticket-box .number {
+  position: absolute;
+  bottom: 3.55rem;
+  left: 3.125rem;
+  width: 8.5rem;
+  line-height: 7.313rem;
+  font-family: SourceHanSansCN-Bold;
+  font-size: 1.75rem;
+  line-height: 0.75rem;
+  letter-spacing: 0.475rem;
+  color: #f3b438;
+}
+
+.ticket-container .ticket-bar .ticket-box .detail {
+  line-height: 0.75rem;
+  position: absolute;
+  bottom: 3.55rem;
+  right: 3.25rem;
+  color: #fff;
+  font-family: SourceHanSansCN-Regular;
+  font-size: 1.5rem;
+}

@@ -44,33 +44,31 @@ header {
       right: 0;
     }
     .seat {
+
       line-height: 3.375rem;
       text-align: center;
       width: 5.25rem;
       height: 3.375rem;
       border-radius: 0.5rem;
       border: solid 0.125rem #ffffff;
+      // margin-top:1rem;
+      color: #fff;
     }
 
     .transparent {
-      a {
-        color: #fff;
-      }
-
+      color: #fff;
       background: transparent;
     }
     .white {
       background: #fff;
-      a {
-        color: #000;
-      }
+      color: #000;
+      
     }
     .blue {
+      color: #fff;
       background: #4073ff;
       border: solid 0.125rem;
-      a {
-        color: #fff;
-      }
+    
     }
 
     .status-box {
@@ -129,6 +127,7 @@ header {
 
     .title {
       position: absolute;
+      top:0.5rem;
       left: 2.538rem;
       font-size: 2rem;
       bottom: 25.938rem;
@@ -141,7 +140,8 @@ header {
     }
     .order-box {
       width: 41.875rem;
-      height: 8.5rem;
+      height: 9.75rem;
+      overflow:scroll;
       border-radius: 1rem;
       border: solid 0.125rem #cccccc;
       position: absolute;
@@ -159,14 +159,17 @@ header {
         top: 1.625rem;
       }
       .seat-bar {
+        height:auto;
         display: flex;
         position: absolute;
-        // width:12rem;
+        flex-wrap:wrap;
+        width:20rem;
         left: 1.938rem;
-        bottom:2.063rem;
+        top:5.063rem;
         .seat-box {
           color: #fff;
           margin-right: 0.625rem;
+          margin-top:0.625rem;
         }
       }
       .span4 {

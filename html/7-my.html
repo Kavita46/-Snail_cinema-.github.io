@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="../js/1.js"></script>
-    <script src = "../js/jquery-3.6.0.min.js"></script>
+    <script src="../js/jquery-3.6.0.min.js"></script>
     <link href="../css/public.css" rel="stylesheet">
     <link href="../css/7-my.css" rel="stylesheet">
 </head>
@@ -17,12 +17,75 @@
     <header>
         <div class="label">我的</div>
         <div class="user-head"></div>
-        <span class="user-name">李先生</span>
+        <span class="user-name"></span>
         <div class="icon-2"></div>
         </div>
     </header>
     <div class="main">
-        <div class="item">
+
+
+    </div>
+    <footer>
+        <div class="footer-bar">
+            <a href="../html/10-index-Noticket.html">
+                <div class="footer-1"></div>
+            </a>
+            <a href="../html/1-cinema.html">
+                <div class="footer-2"></div>
+            </a>
+            <a href="../html/6-myTicket.html">
+                <div class="footer-3"></div>
+            </a>
+            <a href="../html/7-my.html">
+                <div class="footer-4"></div>
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        const username = location.search.split("=")[1];
+        $(function () {
+            console.log(username);
+            $(".user-name").html(username);
+            if (username == undefined) {
+                let loginHTML = `
+    <div class="item">
+    <a href="../html/4-login.html" style="color : red;">立即登录</a>
+    <div class="arrow-right"></div>
+</div>`
+
+                // $(".main:last-child").empty()
+                // 清除main里的最后一个元素
+
+                $(".item:contains(退出)").remove();
+                $(".main").append(loginHTML);
+
+
+            } else if (username != undefined) {
+                ($(".footer-1").parent()).attr("href", "../html/10-index-Noticket.html?username=" + username);
+                localStorage.setItem("currentUser", username);
+
+
+                // 初始化单个账户的订单表,如果没有就创建
+                var orderName = "ordersOf" + username;
+                if (localStorage.getItem(orderName) == null) {
+                    localStorage.setItem(orderName, JSON.stringify([]));
+                }
+
+                // 加载头像,做得假数据
+                if (username == "jack") {
+                    console.log("匹配到jack");
+                    $(".user-head").css("background", "url(../img/h1.jpg) center/100% no-repeat");
+                } else if (username == 'rose') {
+                    $(".user-head").css("background-image", "url(../img/h4.jpg)");
+                } else if (username == 'tom') {
+                    $(".user-head").css("background-image", "url(../img/h2.jpg)");
+
+                }
+
+                // 登录加载各种功能
+                let quitHTML = `
+<div class="item">
             <a href="../html/3-register.html">编辑付款方式</a>
             <div class="arrow-right"></div>
         </div>
@@ -30,19 +93,23 @@
             <a href="../html/5-forget.html">修改密码</a>
             <div class="arrow-right"></div>
         </div>
-        <div class="item">
-            <a href="../html/4-login.html" style="color : red;">退出登录</a>
+
+<div class="item">
+    <a href = "javascript:" style = "color:red" id = "quit">退出登录</a>
             <div class="arrow-right"></div>
         </div>
-    </div>
-    <footer>
-        <div class="footer-bar">
-          <a href="../html/10-index-Noticket.html"><div class="footer-1"></div></a>
-          <a href="../html/1-cinema.html"><div class="footer-2"></div></a>
-          <a href="../html/6-myTicket.html"><div class="footer-3"></div></a>
-          <a href="../html/7-my.html"><div class="footer-4"></div></a>
-        </div>
-      </footer>
+`;
+                $('.main').append(quitHTML);
+
+                $('#quit').click(function () {
+                    localStorage.removeItem("currentUser");
+                    location.href = "../html/7-my.html";
+                })
+
+            }
+        })
+
+    </script>
 </body>
 
 </html>

@@ -8,12 +8,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="../js/1.js"></script>
-    <script src = "../js/jquery-3.6.0.min.js"></script>
+    <script src="../js/jquery-3.6.0.min.js"></script>
     <link href="../css/public.css" rel="stylesheet" />
     <!-- <link href="../css/3-register.css" rel="stylesheet" /> -->
     <!-- <link href="../css/6-myTicket.css" rel="stylesheet" /> -->
     <link href="../css/14.allOrder.css" rel="stylesheet">
-    
+
 </head>
 
 <body>
@@ -33,49 +33,87 @@
 
     </header>
 
-
-    <div class="xbox">
-        <div class="bg">
-            <div class="text-box">
-                <p class="h1 font-bold">哥斯拉大战金刚</p>
-                <p class="span1">成都双楠电影城</p>
-                <p class="span2">2020-04-16&nbsp;19:00</p>
-                <a href="" class="link">交易成功</a>
-            </div>
-        </div>
-    </div>
-    <div class="xbox">
-        <div class="bg">
-            <div class="text-box">
-                <p class="h1 font-bold">哥斯拉大战金刚</p>
-                <p class="span1">成都双楠电影城</p>
-                <p class="span2">2020-04-16&nbsp;19:00</p>
-                <a href="" class="link">交易成功</a>
-            </div>
-        </div>
-    </div>
-    <div class="xbox">
-        <div class="bg">
-            <div class="text-box">
-                <p class="h1 font-bold">哥斯拉大战金刚</p>
-                <p class="span1">成都双楠电影城</p>
-                <p class="span2">2020-04-16&nbsp;19:00</p>
-                <a href="" class="link red">交易取消</a>
-            </div>
-        </div>
-    </div>
     </div>
 
 
     <footer>
         <div class="footer-bar">
-          <a href="../html/9-index-ticket.html"><div class="footer-1"></div></a>
-          <a href="../html/1-cinema.html"><div class="footer-2"></div></a>
-          <a href="../html/6-myTicket.html"><div class="footer-3"></div></a>
-          <a href="../html/7-my.html"><div class="footer-4"></div></a>
+            <a href="../html/9-index-ticket.html">
+                <div class="footer-1"></div>
+            </a>
+            <a href="../html/1-cinema.html">
+                <div class="footer-2"></div>
+            </a>
+            <a href="../html/6-myTicket.html">
+                <div class="footer-3"></div>
+            </a>
+            <a href="../html/7-my.html">
+                <div class="footer-4"></div>
+            </a>
         </div>
-      </footer>
+    </footer>
 
+
+    <script>
+        $(function () {
+            var username = localStorage.getItem("currentUser");
+            var movieList = JSON.parse(localStorage.getItem("movieList"));
+            var operaList = JSON.parse(localStorage.getItem("operaList"));
+
+            console.log(movieList);
+            console.log(operaList);
+
+            console.log(username);
+
+            if (username != null) {
+                var orderName = "ordersOf" + username;
+                var orders = JSON.parse(localStorage.getItem(orderName));
+                console.log(orders);
+                for (let i = 0; i < orders.length; i++) {
+                    var order = orders[i];
+                    // 寻找mName
+                    var HexTime = order.orderId.split("&")[1];// console.log(HexTime);
+                    // 将16进制的HexTime转换为10进制
+                    var test = new Date().getTime();
+                    var time = parseInt(HexTime, 16); console.log(time);
+                    var dateTime = new Date(time)
+                    console.log(dateTime.toString());
+                    // var orderTime = parseInt(order.orderId.split("&")[1], 10);
+                    // console.log(orderTime);
+                    for (let j = 0; j < movieList.length; j++) {
+                        if (movieList[j].id == order.movieId) {
+                            var mName = movieList[j].title;
+                            var imgSrc = movieList[j].imgSrc;
+                            break;
+                        }
+                    }
+
+                    for (let k = 0; k < operaList.length; k++) {
+                        if (operaList[k].id == order.operaId) {
+                            var oName = operaList[k].name;
+                            break;
+                        }
+                    }
+
+
+                    let orderHTML = `
+                      <div class="xbox">
+        <div class="bg" style  ="background: url(${imgSrc}) no-repeat center/100%;">
+            <div class="text-box">
+                <p class="h1 font-bold">${mName}</p>
+                <p class="span1">${oName}</p>
+                <p class="span2">2020-04-16&nbsp;19:00</p>
+                <a href="" class="link red">交易取消</a>
+            </div>
+        </div>
+    </div>`;
+
+                    $("header").after(orderHTML);
+
+                }
+            }
+        })
+    </script>
 </body>
 
 </html>

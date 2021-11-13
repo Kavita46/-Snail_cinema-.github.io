@@ -1,138 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="referrer" content="no-referrer" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="../js/1.js"></script>
-    <script src="../js/types.js"></script>
-    <script src = "../js/jquery-3.6.0.min.js"></script>
-    <link href="../css/public.css" rel="stylesheet" />
-    <link href="../css/17-movie-calender.min.css" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="referrer" content="no-referrer" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../js/1.js"></script>
+  <script src="../js/types.js"></script>
+  <script src="../js/jquery-3.6.0.min.js"></script>
+  <link href="../css/public.css" rel="stylesheet" />
+  <link href="../css/17-movie-calender.min.css" rel="stylesheet" />
 
 </head>
-<body>
 
-  
+<body>
 
   <div class="main">
     <div class="two-button-bar">
       <div class="two-button two-button2">
-        <a id = "btn_calender"   class ="font-bold">排片</a>
+        <a id="btn_calender" class="font-bold">排片</a>
       </div>
       <div class="two-button ">
-        <a id ="btn_digest"  " class ="font-bold">简介</a>
+        <a id="btn_digest" " class =" font-bold">简介</a>
       </div>
     </div>
 
-   <div class="date-container">
-       <div class="date-bar">
+    <div class="date-container">
+      <div class="date-bar">
         <div class="date-item-1 ">
-            <span class="h1">星期一</span>
-            <span class="h1">04-16</span>
+          <span class="h1">星期一</span>
+          <span class="h1">04-16</span>
         </div>
         <div class="date-item-1 date-item-2">
-            <div class="h2">星期二</div>
-            <div class="h2">04-17</div>
+          <div class="h2">星期二</div>
+          <div class="h2">04-17</div>
         </div>
         <div class="date-item-1 date-item-2">
-            <div class="h2">星期三</div>
-            <div class="h2">04-18</div>
+          <div class="h2">星期三</div>
+          <div class="h2">04-18</div>
         </div>
         <div class="date-item-1 date-item-2 date-item-2">
-            <div class="h2">星期四</div>
-            <div class="h2">04-19</div>
+          <div class="h2">星期四</div>
+          <div class="h2">04-19</div>
         </div>
         <div class="date-item-1 date-item-2">
-            <div class="h2">星期五</div>
+          <div class="h2">星期五</div>
 
-            <div class="h2">04-20</div>
+          <div class="h2">04-20</div>
         </div>
         <div class="date-item-1 date-item-2">
-            <div class="h2">星期六</div>
+          <div class="h2">星期六</div>
 
-            <div class="h2">04-21</div>
+          <div class="h2">04-21</div>
         </div>
-       </div>
-   </div> 
-
-   <div class="item-container">
-     <div class="location-img"></div>
-     <div class="time-box">
-       <div class="box">11:00</div>
-       <div class="box">13:00</div>
-       <div class="box box-1">15:00</div>
-       <div class="box box-2">17:00</div>
-       <div class="box box-1">19:00</div>
-       <div class="box box-1">20:00</div>
-       <div class="box box-1">21:00</div>
-     </div>
-     <div class="p1">成都双楠电影城</div>
-     <div class="p2">54.0km • 四川升成都市温江区文化路1号人民商场门口至...</div>
-     <div class="p3">英文 2D • ￥30.00</div>
-   </div>
-   <div class="item-container">
-    <div class="location-img"></div>
-    <div class="time-box">
-      <div class="box">11:00</div>
-      <div class="box">13:00</div>
-      <div class="box box-1">15:00</div>
-      <div class="box box-2">17:00</div>
-      <div class="box box-1">19:00</div>
-      <div class="box box-1">20:00</div>
-      <div class="box box-1">21:00</div>
+      </div>
     </div>
-    <div class="p1">成都双楠电影城</div>
-    <div class="p2">54.0km • 四川升成都市温江区文化路1号人民商场门口至...</div>
-    <div class="p3">英文 2D • ￥30.00</div>
-  </div>
 
-  <div class="button-blue">
-    <a href="13-selecting-seat.html">立即选座</a>
-  </div>
 
+
+    <!-- <div class="item-container">
+      <div class="location-img"></div>
+      <div class="time-box">
+        <div class="box">11:00</div>
+        <div class="box">13:00</div>
+        <div class="box box-1">15:00</div>
+        <div class="box box-2">17:00</div>
+        <div class="box box-1">19:00</div>
+        <div class="box box-1">20:00</div>
+        <div class="box box-1">21:00</div>
+      </div>
+      <div class="p1">成都双楠电影城</div>
+      <div class="p2">54.0km • 四川升成都市温江区文化路1号人民商场门口至...</div>
+      <div class="p3">英文 2D • ￥30.00</div>
+    </div> -->
+
+    <div class="button-blue">
+      <a href="javascript:">立即选座</a>
+    </div>
+  </div>
   <script>
-    $(function(){
+    $(function () {
+
+      // 公共代码,获得当前电影对象
       var movieId = location.search.split("=")[1];
-// 两个跳转
-      $("#btn_digest").attr("href","16-detail-digest.html?movieId="+movieId);
-$("#btn_calender").attr("href",`17-movie-calender.html?movieId=${movieId}`);
 
-var movieList = JSON.parse(localStorage.getItem("movieList"));
-// 当前电影对象
-for(let i  = 0; i < movieList.length; i++){
-console.log(1);
-if(movieList[i].id == movieId){
- console.log(movieObj = movieList[i]);
-  break;
-}
-};
+      // 两个跳转
+      var movieList = JSON.parse(localStorage.getItem("movieList"));
+      // 当前电影对象
+      for (let i = 0; i < movieList.length; i++) {
+        console.log(1);
+        if (movieList[i].id == movieId) {
+          console.log(movieObj = movieList[i]);
+          break;
+        }
+      };
 
-// 渲染header
-let headerHTML = `
-<header style = " background: url(' ${movieObj.imgSrc}') no-repeat center/100%;">
-      <a href="8-films-now.html">
+      // 渲染两个按钮
+      $("#btn_digest").attr("href", "16-detail-digest.html?movieId=" + movieId);
+      $("#btn_calender").attr("href", `17-movie-calender.html?movieId=${movieId}`);
+      // 渲染header
+      let headerHTML = `
+<header style = " background: url(' ${movieObj.posterSrc}') no-repeat center/100%;">
+      <a href="10-index-Noticket.html">
       <div class="arrow-back"></div>
     </a>
     </header>
     `;
 
-    $("body").prepend(headerHTML);
+      $("body").prepend(headerHTML);
 
-    // 渲染电影信息
+      // 渲染电影信息
 
-    var typesArr = movieObj.movieType;
-    var typeStr =[];
-    typesArr.forEach(element => {
+      var typesArr = movieObj.movieType;
+      var typeStr = [];
+      typesArr.forEach(element => {
 
-      element = types[element];
-  typeStr.push(element);
-    });
-    typeStr.join(",  ");
+        element = types[element];
+        typeStr.push(element);
+      });
+      typeStr.join(",  ");
 
-    let textHTML = `
+      let textHTML = `
     <div class="text-container">
           <div class="movie-pic" style = " background: url(' ${movieObj.imgSrc}') no-repeat center/100%"></div>
         <div class="text-box">
@@ -151,9 +141,81 @@ let headerHTML = `
 
       $("header").after(textHTML);
 
+      // 渲染影院
+      var operaHTML = "";
+      var operaList = JSON.parse(localStorage.getItem("operaList"));
+      for (let i = 0; i < operaList.length; i++) {
+        operaList[i].movies.forEach(element => {
+          if (element == movieId) {
+            console.log("匹配成功" + element + operaList[i].name);
 
+            operaHTML += `<div class="item-container">
+      <div class="location-img"></div>
+      <div class="time-box">
+        <div class="box">11:00</div>
+        <div class="box">13:00</div>
+        <div class="box box-1">15:00</div>
+        <div class="box box-2">17:00</div>
+        <div class="box box-1">19:00</div>
+        <div class="box box-1">20:00</div>
+        <div class="box box-1">21:00</div>
+      </div>
+      <div class = "operaId" style = "display:none">${operaList[i].id}</div>
+      <div class="p1">${operaList[i].name}</div>
+      <div class="p2">54.0km • ${operaList[i].address}</div>
+      <div class="p3">英文 2D • ￥${movieObj.price}</div>
+    </div>`;
+
+          }
+        })
+      };
+      $(".date-container").after(operaHTML);
+
+      // 给影院添加点击事件
+
+      var isSelected = false;
+      var SelectedOperaId = "";
+      $(".item-container").click(function () {
+        if (!$(this).hasClass("opera-selected")) {
+          $(this).addClass("opera-selected");
+          // isSelected = true;
+
+          $(this).siblings().removeClass("opera-selected");
+          // console.log(($(this).siblings(.removeClass(""))));
+
+          SelectedOperaId = $(this).find(".operaId").text();
+        } else if ($(this).hasClass("opera-selected")) {
+          $(this).removeClass("opera-selected");
+          SelectedOperaId = "";
+          // isSelected = false;
+        }
+        console.log(SelectedOperaId);
+      })
+
+      // 按钮
+
+      $(".button-blue>a").click(function () {
+
+        if (SelectedOperaId == "") {
+          alert("请先选择一个影院");
+        }
+        else {
+          var username = localStorage.getItem("currentUser");
+
+          if (username == undefined) {
+            alert("请先登录");
+            location.href = "4-login.html";
+          } else {
+            // 赋予选座按钮功能
+            var newHref = "13-selecting-seat.html?movieId=" + movieId + "&operaId=" + SelectedOperaId;
+            $(".button-blue>a").attr("href", newHref);
+          }
+
+        }
+      })
 
     })
   </script>
 </body>
+
 </html>

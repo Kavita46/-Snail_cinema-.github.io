@@ -8,20 +8,20 @@
     <title>Document</title>
 
     <script src="../js/1.js"></script>
-    <script src = "../js/jquery-3.6.0.min.js"></script>
+    <script src="../js/jquery-3.6.0.min.js"></script>
     <link href="../css/public.css" rel="stylesheet" />
-   <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css" />
     <link href="../css/15-confirmOrder.min.css" rel="stylesheet" />
   </head>
   <body>
     <header>
       <a href="15-confirmOrder.html">
-      <div class="arrow-back"></div>
-    </a>
+        <div class="arrow-back"></div>
+      </a>
       <div class="icon-2"></div>
     </header>
     <div class="block-1">
-        <div class="footer-gray"></div>
+      <div class="footer-gray"></div>
       <div class="section-1">
         <div class="movie-pic"></div>
         <div class="text-box">
@@ -33,56 +33,103 @@
     </div>
 
     <div class="block-2">
-        <div class="footer-gray"></div>
+      <div class="footer-gray"></div>
       <div class="text-box-1">
         <span class="l1">观影日期</span>
         <span class="l2">2020-04-16 星期一</span>
         <span class="l3">座位</span>
         <div class="l4">
-            <div class="seat-bar">
-                <div class="seat-box">F4</div>
-                <div class="seat-box">F5</div>
-                <div class="seat-box">F6</div>
-              </div>
+          <div class="seat-bar">
+            <div class="seat-box">F4</div>
+            <div class="seat-box">F5</div>
+            <div class="seat-box">F6</div>
+          </div>
         </div>
         <span class="l5">总价</span>
         <span class="l6">$120.00</span><span class="l7">优惠</span>
         <span class="l8">-$0.00</span>
       </div>
       <div class="text-box-2">
-          <span class="l1">时间</span>
-          <span class="l2">19:00</span>
-          <span class="l3">座位总数</span>
-          <span class="l4">3</span>
-          <span class="l5">服务费</span>
-          <span class="l6">$3.00</span>
+        <span class="l1">时间</span>
+        <span class="l2">19:00</span>
+        <span class="l3">座位总数</span>
+        <span class="l4">3</span>
+        <span class="l5">服务费</span>
+        <span class="l6">$3.00</span>
       </div>
     </div>
     <div class="block-3">
-      <div class="text-box" style = "z-index:3">
+      <div class="text-box" style="z-index: 3">
         <span class="left">总计</span>
         <span class="right">$123.0</span>
       </div>
-
-      <div class="button-blue">
-        <a href="#">去支付</a>
-      </div>
     </div>
-
 
     <div class="pay-box">
-        <div class="text-bar">
-          <a href="../15-confirmOrder.html">
-            <span class="span2" style = "text-decoration: none; color:#000">退出支付</span>
-          </a>
-            <div class="arrow-black"></div>
-            <span class = "span3">
-            支付</span>
-        </div>
-        <div class="pay-card"></div>
-        <div class="button-blue">
-            <a href="12-ticketBuy.html">立即支付</a>
-        </div>
+      <div class="text-bar">
+        <a href="../15-confirmOrder.html">
+          <span class="span2" style="text-decoration: none; color: #000"
+            >退出支付</span
+          >
+        </a>
+        <div class="arrow-black"></div>
+        <span class="span3"> 支付</span>
+      </div>
+      <div class="pay-card"></div>
+      <div class="button-blue">立即支付</div>
     </div>
+
+    <script>
+      // 从url中获取参数
+      var movieId = location.search.split("&")[0].split("=")[1];
+      var operaId = location.search.split("&")[1].split("=")[1];
+      var seats = location.search.split("&")[2].split("=")[1];
+
+      // 取得当前影院和电影和选座的座位
+      var movieList = JSON.parse(localStorage.getItem("movieList"));
+      var operaList = JSON.parse(localStorage.getItem("operaList"));
+      var movieObj = movieList.find(function (item) {
+        return item.id == movieId;
+      });
+      var operaObj = operaList.find(function (item) {
+        return item.id == operaId;
+      });
+
+      console.log(seats);
+      // 一个字符串
+      var seats = seats.split("-");
+      console.log(seats);
+
+      console.log(seats.length);
+      let picHTML = ` <div class="movie-pic" style = " background: url('${movieObj.imgSrc}') no-repeat center/100%"></div>`;
+
+      $(".section-1").prepend(picHTML);
+      $(".text-2").text(movieObj.title);
+      $(".text-3").text(operaObj.name);
+      $("span.l4").text(seats.length);
+
+      console.log(movieObj.price);
+      let totalPrice = movieObj.price * seats.length;
+      console.log(seats.length);
+      console.log(totalPrice);
+      $(".text-box-1>.l6").text("$" + totalPrice.toString());
+      $(".right").text("$" + (totalPrice + 10).toString());
+      var seatHTML = "";
+      for (let i = 0; i < seats.length; i++) {
+        seatHTML += `<div class="seat-box">${seats[i]}</div>`;
+      }
+      $(".seat-bar").append(seatHTML);
+
+      console.log(seats);
+      $(".button-blue").click(function () {
+        location.href =
+          "12-ticketBuy.html?movieId=" +
+          movieId +
+          "&operaId=" +
+          operaId +
+          "&seats=" +
+          seats.join("-");
+      });
+    </script>
   </body>
 </html>

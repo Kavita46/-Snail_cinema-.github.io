@@ -28,16 +28,15 @@
 
  <script>
 $(function(){
-  var movieObj;
+  // var movieObj;
   // 一定要JSON字符串转换为数组
+  var movieId = location.search.split("=")[1];
 var movieList = JSON.parse(localStorage.getItem("movieList"));
-var movieId = location.search.split("=")[1];
-for(let i  = 0; i < movieList.length; i++){
 
+for(let i  = 0; i < movieList.length; i++){
 console.log(1);
 if(movieList[i].id == movieId){
-
-   movieObj = movieList[i];
+   console.log(movieObj = movieList[i]);
   break;
 }
 };
@@ -47,8 +46,8 @@ $("#btn_digest").attr("href","16-detail-digest.html?movieId="+movieId);
 $("#btn_calender").attr("href",`17-movie-calender.html?movieId=${movieId}`);
 // 渲染header
 let headerHTML = `
-<header style = " background: url(' ${movieObj.imgSrc}') no-repeat center/100%;">
-      <a href="8-films-now.html">
+<header style = " background: url(' ${movieObj.posterSrc}') no-repeat center/100%;">
+      <a href="10-index-Noticket.html">
       <div class="arrow-back"></div>
     </a>
     </header>

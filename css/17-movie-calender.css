@@ -170,6 +170,11 @@ body .main .date-container .date-bar .date-item-2 {
   background-color: #fff;
 }
 
+body .main .opera-selected {
+  border: 3px solid blue;
+  border-radius: 1px;
+}
+
 body .main .item-container {
   width: 44.875rem;
   height: 18.688rem;

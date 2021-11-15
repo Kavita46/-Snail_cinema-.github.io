@@ -30,9 +30,7 @@
     </div>
   </header>
 
-  <div class="ticket-container">
-    <span class="title font-bold">待使用电影票</span>
-    <div class="ticket-bar">
+
 
     </div>
   </div>
@@ -53,10 +51,6 @@
     </div>
   </div>
 
-  <div class="score-board">
-    <span class="p1">评分榜</span>
-    <a href="8-films-now.html" class="p2">查看更多</a>
-  </div>
 
   <footer>
     <div class="footer-bar">
@@ -78,6 +72,7 @@
       function unique(arr) {
         return Array.from(new Set(arr))
       }
+
       $.ajax({
         url: "https://www.fastmock.site/mock/bb4157f45a0b5ffdcb3f6d984517a6c0/woniuMovie/getAllMovies",
         type: "get",
@@ -171,9 +166,18 @@
         var orders = JSON.parse(localStorage.getItem(orderName));
         console.log(orders);
 
+        if(orders.length > 0){
+        $("header").after(`
+        <div class="ticket-container">
+    <span class="title font-bold">待使用电影票</span>
+    <div class="ticket-bar">
+      `);
+    }
+
         for (let i = 0; i < orders.length; i++) {
 
           var order = orders[i];
+          var orderId = order.orderId;
           var number = order.orderId.split("&")[1];
           console.log(number);
           for (let j = 0; j < movieList.length; j++) {
@@ -197,12 +201,13 @@
         <div class="place">${oName}2020-04-16 19:00</div>
         <div class="number">${number}}</div>
         <div class="QR-small"></div>
-        <a href="11-ticketDetail.html" class="detail">查看详情&ensp;&ensp; </a>
+        <a href="11-ticketDetail.html?orderId=${orderId}" class="detail">查看详情&ensp;&ensp; </a>
       </div>`
 
           $(".ticket-bar").append(ticketHTML);
         } // for循环结束
       } // if结束
+    
     });
   </script>
 </body>

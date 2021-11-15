@@ -20,7 +20,7 @@
       <div class="bg">
         <div class="section-1">
           <div class="movie-pic"></div>
-          <div class="text-1">订单号72132342241</div>
+          <div class="text-1"></div>
           <div class="text-2">哥斯拉大战金刚</div>
           <div class="text-3">成都双楠电影城·英文&nbsp;2D</div>
         </div>
@@ -91,6 +91,7 @@
       var orderId = username +"&" +  hexTime;
       console.log(orderId);
 
+      $('.text-1').text("订单号为" + orderId);
       var order = {
           orderId: orderId,
           movieId: movieId,

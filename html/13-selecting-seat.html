@@ -104,7 +104,45 @@
     // 选中3列卖出
     $("[id$=3]").attr("class", "seat white");
 
-    console.log($("[id = seat-D3]"));
+
+
+
+    // to-do  买了票之后再渲染座位
+    var username = localStorage.getItem("currentUser");
+    var  existingSeats;
+
+    if(username !=undefined){
+      var orderName = "ordersOf" + username;
+    var orders = JSON.parse(localStorage.getItem(orderName));
+console.log(orders);
+ orders.forEach(function(item){
+  if(item.movieId ==movieId &&item.operaId ==operaId){
+    console.log(item.seats);
+    existingSeats = item.seats;
+
+    for(let i  =0; i <  existingSeats.length; i++){
+    let seatID = "seat-" + existingSeats[i];
+    console.log(seatID);
+    console.log($(`#${seatID}`));
+
+    $(`#${seatID}`).attr("class","seat white");
+    
+  }
+
+  } 
+ })
+
+    }
+
+
+
+
+   
+    
+
+    // to-do
+
+
 
     // 3-动态渲染已选座位,并且要往后传
     var selectedSeat = [];

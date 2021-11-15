@@ -81,8 +81,13 @@
                 } else if (username == 'rose') {
                     $(".user-head").css("background-image", "url(../img/h4.jpg)");
                 } else if (username == 'tom') {
-                    $(".user-head").css("background-image", "url(../img/h2.jpg)");
-
+                    $(".user-head").css("background-image", "url(../img/h6.jpg)");
+                }else if(username == 'aaa'){
+                    $(".user-head").css("background", "url(../img/h3.jpg) center/100% no-repeat");
+                }else if(username =="bbb"){
+                    $(".user-head").css("background", "url(../img/h5.jpg) center/100% no-repeat");
+                }else{
+                    $(".user-head").css("background", "url(../img/h2.jpg) center/100% no-repeat");
                 }
 
                 // 登录加载各种功能
@@ -107,9 +112,22 @@
                     localStorage.removeItem("currentUser");
                     location.href = "../html/7-my.html";
                 })
-
             }
-        })
+            ;
+        
+            // 修改头像功能 ,暂时不做了吧
+            // if(username != undefined){
+
+            //     console.log("添加修改");
+            //     let changeHTML = `
+            //     <input type = "file" value = "修改头像" style = "position:absolute; top:50px;right:-50px; ">`
+
+            //     $(".user-head").append(changeHTML);
+            // }
+
+
+        }
+        )
 
     </script>
 </body>

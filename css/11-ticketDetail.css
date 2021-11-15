@@ -21,7 +21,7 @@ header .bg {
 }
 
 header .bg .section-1 {
-  width: 30.313rem;
+  width: 36.313rem;
   height: 14.875rem;
   position: absolute;
   top: 2.563rem;
@@ -34,20 +34,19 @@ header .bg .section-1 .movie-pic {
   position: absolute;
   top: 0;
   left: 0;
-  background: url("../img/movie-1@2x.png") no-repeat center/100%;
 }
 
 header .bg .section-1 .text-1 {
   position: absolute;
-  top: 2.313rem;
+  top: 0.313rem;
   left: 11.5rem;
   font-size: 2rem;
-  line-height: 0.75rem;
+  line-height: 1.5rem;
 }
 
 header .bg .section-1 .text-2 {
   position: absolute;
-  top: 5.5rem;
+  top: 4.5rem;
   left: 11.5rem;
   font-size: 1.5rem;
 }

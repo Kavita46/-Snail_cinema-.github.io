@@ -7,15 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="../js/1.js"></script>
-    <script src = "../js/jquery-3.6.0.min.js"></script>
+    <script src="../js/jquery-3.6.0.min.js"></script>
     <link href="../css/public.css" rel="stylesheet" />
     <link rel="stylesheet" href="../css/font.min.css" class="font-bold" />
     <link href="../css/11-ticketDetail.min.css" rel="stylesheet" />
   </head>
   <body>
     <header>
-      <a href="9-index-ticket.html">
-      <div class="arrow-back"></div></a>
+      <a href="10-index-Noticket.html"> <div class="arrow-back"></div></a>
       <div class="icon-2"></div>
 
       <div class="bg">
@@ -25,20 +24,81 @@
           <div class="text-2">兑换码</div>
           <div class="text-3">515334</div>
         </div>
-        <div class="section-1">
-          <a href="16-detail-digest.html">
-          <div class="movie-pic"></div>
-        </a>
-          <div class="text-1">哥斯拉大战金刚</div>
-          <div class="text-2">成都双楠电影城·英文&nbsp;2D</div>
-          <div class="text-3">2D2020 -04-16&nbsp;19:00</div>
-          <div class="seat-bar">
-            <div class="seat-box">F4</div>
-            <div class="seat-box">F5</div>
-            <div class="seat-box">F6</div>
-          </div>
-        </div>
+
       </div>
     </header>
+
+    <script>
+      $(function () {
+    
+        var username  = localStorage.getItem('currentUser');
+var orderId = location.search.split('=')[1];
+
+console.log(orderId);
+        var orderName = "ordersOf" +  username;
+        var orders = JSON.parse(localStorage.getItem(orderName));
+
+        var orderObj;
+        var movieObj;
+        var operaObj;
+        orders.forEach(element => {
+          
+          if(element.orderId== orderId){
+            orderObj = element;
+            console.log(orderObj);
+            return ;
+          }
+        });
+
+        var movieList = JSON.parse(localStorage.getItem('movieList'));
+        var operaList = JSON.parse(localStorage.getItem('operaList'));
+
+        movieList.forEach(element => {
+          if(element.id == orderObj.movieId){
+            console.log(element.id);
+             movieObj = element;
+            return ;
+          }
+        });
+
+        operaList.forEach(element => {
+          if(element.id == orderObj.operaId){
+             operaObj = element;
+            return ;
+          }
+        });
+
+        console.log(movieObj);
+        console.log(operaObj);
+        var seats   = orderObj.seats;
+        console.log(seats);
+
+
+let theHTML = 
+`
+<div class="section-1">
+          <a href="16-detail-digest.html">
+            <div class="movie-pic" style = "background:url(${movieObj.imgSrc}) no-repeat center/100%"></div>
+          </a>
+          <div class="text-1">${movieObj.title}</div>
+          <div class="text-2">${operaObj.name}·英文&nbsp;2D</div>
+          <div class="text-3">2D2020 -04-16&nbsp;19:00</div>
+          <div class="seat-bar">
+          </div>
+        </div>
+`
+
+let seatHTML = ``;
+for(let i = 0; i < seats.length; i++){
+
+  seatHTML += `<div class="seat-box">${seats[i]}</div>`
+}
+        $(".QR-box").after(theHTML);
+
+        $(".seat-bar").append(seatHTML);
+
+      });
+
+    </script>
   </body>
 </html>
